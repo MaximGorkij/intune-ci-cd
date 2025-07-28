@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Intune Deployer</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Intune aplikácie</h1>
+  <form method="POST" action="/import">
+    <table>
+      <tr><th></th><th>Názov</th><th>ID</th><th>Stav</th></tr>
+      {% for app in apps %}
+      <tr class="{{ statuses[app['id']] }}">
+        <td><input type="checkbox" name="selected" value="{{ app['id'] }}"></td>
+        <td>{{ app['displayName'] }}</td>
+        <td>{{ app['id'] }}</td>
+        <td>{{ statuses[app['id']] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <button type="submit">Import vybraných</button>
+  </form>
+</body>
+</html>

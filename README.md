@@ -1,14 +1,15 @@
-# Intune CI/CD Template
+# Intune Deployer Web
 
-Automatizované spracovanie aplikácií a politík v Microsoft Intune pomocou Python skriptov a CI/CD pipeline.
+Webová aplikácia na správu aplikácií v Microsoft Intune. Umožňuje export, import a porovnanie konfigurácií aplikácií cez Graph API.
 
-## Obsah
-- Export a import objektov pomocou Microsoft Graph API
-- Git-verziovanie záloh (`.json`)
-- Dynamická konfigurácia cez `config.json`
-- Azure DevOps pipeline (`azure-pipelines.yml`)
+## Funkcie
 
-## Nastavenie
-1. Vytvor Azure App Registration s potrebnými oprávneniami
-2. Uprav `config.json` podľa tvojho tenanta
-3. Spusti pipeline cez DevOps alebo manuálne
+- GUI výber aplikácií na import
+- Vizualizácia zmien
+- Docker podpora
+
+## Spustenie
+
+```bash
+docker build -t intune-deployer .
+docker run -p 5000:5000 intune-deployer
