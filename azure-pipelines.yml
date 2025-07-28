@@ -1,0 +1,21 @@
+trigger:
+  branches:
+    include:
+    - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  pythonVersion: '3.10'
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(pythonVersion)'
+
+- script: |
+    pip install requests
+    python export.py
+    python import.py
+  displayName: 'Spusti Intune CI/CD skripty'
